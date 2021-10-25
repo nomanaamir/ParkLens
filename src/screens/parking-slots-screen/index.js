@@ -11,8 +11,9 @@ import {
     ScrollView,
     Pressable
 } from 'react-native';
+import Header from '../../components/header/index';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-
+import { Marker } from 'react-native-maps';
 const { width, height, fontScale } = Dimensions.get('window');
 const ParkingSlots = ({ navigation }) => {
     const [isAvailableParking, setIsAvailableParking] = useState(true);
@@ -20,7 +21,430 @@ const ParkingSlots = ({ navigation }) => {
     const [isViewSlots, setIsViewSlots] = useState(false);
 
     const [mapType, setMapType] = useState('standard');
+    const parkingLots = [
+        {
+            latitude: 32.92731,
+            longitude: -96.95153,
+            color: '#ade8a5',
+            id: '1'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95147,
+            color: '#de5c2f',
+            id: '2'
 
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.9514,
+            color: '#ade8a5',
+            id: '3'
+
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95133,
+            color: '#ade8a5',
+            id: '4'
+
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95126,
+            color: '#ade8a5',
+            id: '5'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.9512,
+            color: '#de5c2f',
+            id: '6'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95114,
+            color: '#de5c2f',
+            id: '7'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95107,
+            color: '#ade8a5',
+            id: '8'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95101,
+            color: '#ade8a5',
+            id: '9'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95096,
+            color: '#de5c2f',
+            id: '10'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95091,
+            color: '#ade8a5',
+            id: '11'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95087,
+            color: '#de5c2f',
+            id: '12'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95081,
+            color: '#ade8a5',
+            id: '13'
+        },
+        {
+            latitude: 32.92731,
+            longitude: -96.95075,
+            color: '#de5c2f',
+            id: '14'
+        },
+
+
+        {
+            latitude: 32.9273,
+            longitude: -96.95035,
+            color: '#de5c2f',
+            id: '15'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.95029,
+            color: '#de5c2f',
+            id: '16'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.95022,
+            color: '#de5c2f',
+            id: '17'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.95016,
+            color: '#de5c2f',
+            id: '18'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.95009,
+            color: '#de5c2f',
+            id: '19'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.95003,
+            color: '#de5c2f',
+            id: '20'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94996,
+            color: '#de5c2f',
+            id: '21'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.9499,
+            color: '#de5c2f',
+            id: '22'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94983,
+            color: '#de5c2f',
+            id: '23'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94976,
+            color: '#de5c2f',
+            id: '24'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.9497,
+            color: '#de5c2f',
+            id: '25'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94964,
+            color: '#de5c2f',
+            id: '26'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94959,
+            color: '#de5c2f',
+            id: '27'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94954,
+            color: '#de5c2f',
+            id: '28'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94948,
+            color: '#de5c2f',
+            id: '29'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94942,
+            color: '#de5c2f',
+            id: '30'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94935,
+            color: '#de5c2f',
+            id: '31'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94929,
+            color: '#de5c2f',
+            id: '32'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94922,
+            color: '#de5c2f',
+            id: '33'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94916,
+            color: '#de5c2f',
+            id: '34'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94873,
+            color: '#de5c2f',
+            id: '35'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94866,
+            color: '#de5c2f',
+            id: '36'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.9486,
+            color: '#de5c2f',
+            id: '37'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94854,
+            color: '#de5c2f',
+            id: '38'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94847,
+            color: '#de5c2f',
+            id: '39'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.9484,
+            color: '#de5c2f',
+            id: '40'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94834,
+            color: '#de5c2f',
+            id: '41'
+        },
+        {
+            latitude: 32.9273,
+            longitude: -96.94828,
+            color: '#de5c2f',
+            id: '42'
+        },
+
+
+        {
+            latitude: 32.92729,
+            longitude: -96.9482,
+            color: '#de5c2f',
+            id: '43'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94814,
+            color: '#de5c2f',
+            id: '44'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94807,
+            color: '#de5c2f',
+            id: '45'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94799,
+            color: '#de5c2f',
+            id: '46'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94793,
+            color: '#de5c2f',
+            id: '47'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94786,
+            color: '#de5c2f',
+            id: '48'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.9478,
+            color: '#de5c2f',
+            id: '49'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94774,
+            color: '#de5c2f',
+            id: '50'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94769,
+            color: '#de5c2f',
+            id: '51'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94762,
+            color: '#de5c2f',
+            id: '52'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94757,
+            color: '#de5c2f',
+            id: '53'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.9475,
+            color: '#de5c2f',
+            id: '54'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94744,
+            color: '#de5c2f',
+            id: '55'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94737,
+            color: '#de5c2f',
+            id: '56'
+        },
+        {
+            latitude: 32.92728,
+            longitude: -96.94699,
+            color: '#de5c2f',
+            id: '57'
+        },
+
+
+
+        {
+            latitude: 32.92729,
+            longitude: -96.94692,
+            color: '#de5c2f',
+            id: '58'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94685,
+            color: '#de5c2f',
+            id: '59'
+        },
+        {
+            latitude: 32.92729,
+            longitude: -96.94679,
+            color: '#de5c2f',
+            id: '60'
+        },
+
+
+        {
+            latitude: 32.92728,
+            longitude: -96.94673,
+            color: '#de5c2f',
+            id: '61'
+        },
+        {
+            latitude: 32.92728,
+            longitude: -96.94667,
+            color: '#de5c2f',
+            id: '62'
+        },
+        {
+            latitude: 32.92728,
+            longitude: -96.9466,
+            color: '#de5c2f',
+            id: '63'
+        },
+
+        {
+            latitude: 32.92729,
+            longitude: -96.94654,
+            color: '#de5c2f',
+            id: '64'
+        },
+
+        {
+            latitude: 32.92728,
+            longitude: -96.94647,
+            color: '#de5c2f',
+            id: '65'
+        },
+        {
+            latitude: 32.92728,
+            longitude: -96.94642,
+            color: '#de5c2f',
+            id: '66'
+        },
+        {
+            latitude: 32.92728,
+            longitude: -96.94636,
+            color: '#de5c2f',
+            id: '67'
+        },
+        {
+            latitude: 32.92728,
+            longitude: -96.94629,
+            color: '#de5c2f',
+            id: '68'
+        },
+    ]
 
 
     const toggleDrawer = () => {
@@ -31,36 +455,16 @@ const ParkingSlots = ({ navigation }) => {
         setIsViewSlots(!isViewSlots)
         setMapType('satellite')
     }
+   
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{ flexDirection: 'row', height: 80, alignItems: 'center' }}>
-                <TouchableOpacity onPress={() => toggleDrawer()} style={{ width: '20%' }}>
-                    {/*Donute Button Image */}
-                    <Image
-                        source={{ uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/drawer.png' }}
-                        style={{
-                            width: 35,
-                            height: 35,
-                            marginLeft: 5
-                        }}
-                    />
-                </TouchableOpacity>
+            <Header headerAction={toggleDrawer} actionIcon={require('../../../assets/menu.png')} />
 
-                {/* <View> */}
-                <View style={styles.logoContainer}>
-                    <Image
-                        style={styles.logo}
-                        resizeMode="contain"
-                        source={require('../../../assets/logo.jpg')}
-                    />
-                </View>
-                {/* </View> */}
-            </View>
             <View style={styles.container}>
                 <MapView
                     style={styles.map}
                     region={{
-                        latitude: 37.3318456, longitude: -122.0296002,
+                        latitude: 32.927278, longitude: -96.951583,
                         latitudeDelta: 0.00485,
                         longitudeDelta: 0.004821,
                     }}
@@ -72,6 +476,29 @@ const ParkingSlots = ({ navigation }) => {
                     scrollEnabled={true}
                     moveOnMarkerPress={true}
                 >
+                    {
+                        mapType !== 'standard' ?
+                            parkingLots.map((item, index) => {
+                                return (
+                                    <MapView.Marker
+                                        key={item.id}
+                                        anchor={{x: 0.5, y: 0.5}}
+                                        tracksViewChanges={false}
+                                        coordinate={
+                                            {
+                                                latitude: item.latitude,
+                                                longitude: item.longitude,
+                                            }}
+                                    >
+                                        <View style={{ backgroundColor: item.color, width: 15, height: 15, borderRadius: 100 }}>
+                                        </View>
+                                    </MapView.Marker>
+                                )
+                            })
+                            :
+                            null
+                    }
+
                 </MapView>
                 {
                     !isViewSlots ?
@@ -106,7 +533,7 @@ const ParkingSlots = ({ navigation }) => {
                                 {isDropdown ?
                                     <View style={styles.dropdown}>
                                         <TouchableOpacity style={styles.dropdownBtn} >
-                                            <Text style={styles.dropdownBtnText}>
+                                            <Text style={styles.dropdownBtnText} onPress={() => viewSlots()}>
                                                 View lot map
                                             </Text>
                                         </TouchableOpacity>
@@ -126,7 +553,7 @@ const ParkingSlots = ({ navigation }) => {
                             </>
                         :
                         <View style={styles.payBtnContainer}>
-                            <TouchableOpacity style={styles.payBtn} >
+                            <TouchableOpacity style={styles.payBtn} onPress={() => navigation.navigate('payForSpace')}>
                                 <Text style={styles.payBtnText}>
                                     PAY FOR SPACE
                                 </Text>
@@ -138,7 +565,8 @@ const ParkingSlots = ({ navigation }) => {
                     isViewSlots ?
                         <View style={styles.lotCard}>
                             <Text style={styles.lotCardHeading}>
-                                This lot <Text style={styles.permitLink}>requires a permit</Text>
+                                Welcome Street
+                                {/* This lot <Text style={styles.permitLink}>requires a permit</Text> */}
                             </Text>
                             <View style={styles.statusRow}>
                                 <View style={[styles.statusRowIndicator, styles.green]}>
@@ -158,20 +586,12 @@ const ParkingSlots = ({ navigation }) => {
                                 </Text>
                             </View>
 
-                            <View style={styles.statusRow}>
-                                <View style={[styles.statusRowIndicator, styles.yellow]}>
-
-                                </View>
-                                <Text style={styles.statusRowText}>
-                                    No Data: 10
-                                </Text>
-                            </View>
                         </View>
                         :
                         null
                 }
             </View>
-        </SafeAreaView>
+        </SafeAreaView >
     );
 }
 const styles = StyleSheet.create({
@@ -278,12 +698,14 @@ const styles = StyleSheet.create({
         right: 10,
         padding: 15,
         alignItems: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        minWidth: 180
     },
     lotCardHeading: {
         fontStyle: 'italic',
         color: 'gray',
-        fontSize: 15
+        fontSize: 15,
+        marginBottom: 5
     },
     permitLink: {
         color: '#4f4ace',
