@@ -13,6 +13,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import ParkingSlots from '../parking-slots-screen/index'
+import PayForSpaceScreen from '../pay-for-space/index'
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
@@ -37,6 +39,12 @@ function DashboardScreen(props) {
                     drawerLabel: 'Parking Slots', headerShown: false,
                 }}
                 component={ParkingSlots} />
+            {/* <Drawer.Screen
+                name="payForSpace"
+                options={{
+                    drawerLabel: '', headerShown: false,
+                }}
+                component={PayForSpaceScreen} /> */}
         </Drawer.Navigator>
     );
 };
