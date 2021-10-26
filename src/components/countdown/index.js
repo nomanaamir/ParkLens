@@ -40,7 +40,7 @@ function Countdown() {
                 <View style={styles.timeContainer}>
                     <View style={[styles.timeBlock, styles.border]}>
                         <Text style={styles.timeBlockText}>
-                            2
+                            5
                         </Text>
                     </View>
                     <View style={styles.timeBlock}>
@@ -54,12 +54,12 @@ function Countdown() {
                 <View style={styles.timeContainer}>
                     <View style={[styles.timeBlock, styles.border]}>
                         <Text style={styles.timeBlockText}>
-                            3
+                            5
                         </Text>
                     </View>
                     <View style={styles.timeBlock}>
                         <Text style={styles.timeBlockText}>
-                            6
+                            9
                         </Text>
                     </View>
                 </View>
