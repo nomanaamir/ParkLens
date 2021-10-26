@@ -13,10 +13,8 @@ import {
 import Header from '../../components/header/index';
 import Button from '../../components/button/index';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { Marker } from 'react-native-maps';
 const { width, height, fontScale } = Dimensions.get('window');
 const ParkingSlots = ({ navigation }) => {
-    const [isAvailableParking, setIsAvailableParking] = useState(true);
     const [isDropdown, toggleDropdown] = useState(false);
     const [isViewSlots, setIsViewSlots] = useState(false);
 
@@ -476,6 +474,16 @@ const ParkingSlots = ({ navigation }) => {
                     scrollEnabled={true}
                     moveOnMarkerPress={true}
                 >
+                    <MapView.Marker
+                        anchor={{ x: 0.5, y: 0.5 }}
+                        tracksViewChanges={false}
+                        coordinate={
+                            {
+                                latitude: 32.927278, longitude: -96.951583
+                            }}
+                    >
+                        
+                    </MapView.Marker>
                     {
                         mapType !== 'standard' ?
                             parkingLots.map((item, index) => {
@@ -502,25 +510,12 @@ const ParkingSlots = ({ navigation }) => {
                 </MapView>
                 {
                     !isViewSlots ?
-                        isAvailableParking ?
-                            <View style={styles.actions}>
-                                <TouchableOpacity style={styles.allowLocationBtn} >
-                                    <Text style={styles.allowLocationBtnText}>
-                                        Search parking near you
-                                    </Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.allowLocationBtn} onPress={() => setIsAvailableParking(!isAvailableParking)}>
-                                    <Text style={styles.allowLocationBtnText}>
-                                        View all available parkings
-                                    </Text>
-                                </TouchableOpacity>
-                            </View>
-                            :
+                       
                             <>
                                 <Pressable style={styles.availableLot} onPress={() => toggleDropdown(!isDropdown)}>
                                     <View>
                                         <Text style={styles.availableLotText}>
-                                            DB Road, Coimbafore
+                                            Welcome Street, George Town
                                         </Text>
                                     </View>
                                     <View style={styles.progressBar}>
@@ -532,17 +527,17 @@ const ParkingSlots = ({ navigation }) => {
                                 </Pressable>
                                 {isDropdown ?
                                     <View style={styles.dropdown}>
-                                        <TouchableOpacity style={styles.dropdownBtn} >
-                                            <Text style={styles.dropdownBtnText} onPress={() => viewSlots()}>
+                                        <TouchableOpacity style={styles.dropdownBtn} onPress={() => viewSlots()}>
+                                            <Text style={styles.dropdownBtnText}>
                                                 View lot map
                                             </Text>
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.dropdownBtn} onPress={() => viewSlots()}>
+                                        <TouchableOpacity style={styles.dropdownBtn}>
                                             <Text style={styles.dropdownBtnText}>
                                                 Get driving dir
                                             </Text>
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.dropdownBtn} onPress={() => { setIsAvailableParking(!isAvailableParking); toggleDropdown(!isDropdown) }}>
+                                        <TouchableOpacity style={styles.dropdownBtn} onPress={() => { navigation.goBack(); toggleDropdown(!isDropdown) }}>
                                             <Text style={styles.dropdownBtnText}>
                                                 Go back
                                             </Text>
@@ -562,7 +557,6 @@ const ParkingSlots = ({ navigation }) => {
                         <View style={styles.lotCard}>
                             <Text style={styles.lotCardHeading}>
                                 Welcome Street
-                                {/* This lot <Text style={styles.permitLink}>requires a permit</Text> */}
                             </Text>
                             <View style={styles.statusRow}>
                                 <View style={[styles.statusRowIndicator, styles.green]}>
@@ -608,26 +602,6 @@ const styles = StyleSheet.create({
         height: height,
         width: '100%',
     },
-    actions: {
-        position: 'absolute',
-        top: '75%',
-        alignSelf: 'center',
-        height: '20%',
-        justifyContent: 'space-between'
-
-    },
-    allowLocationBtn: {
-        backgroundColor: '#81c341',
-        alignSelf: 'center',
-        padding: 10,
-        height: 45,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    allowLocationBtnText: {
-        color: 'black',
-        fontSize: fontScale * 14
-    },
     availableLot: {
         position: 'absolute',
         top: '10%',
@@ -644,7 +618,6 @@ const styles = StyleSheet.create({
     },
     progressBar: {
         height: '80%',
-        backgroundColor: 'red',
     },
     progressBarImg: {
         flex: 1,
@@ -654,7 +627,8 @@ const styles = StyleSheet.create({
         top: '25%',
         width: '100%',
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 15
     },
     dropdownBtn: {
         backgroundColor: '#81c341',
@@ -689,9 +663,6 @@ const styles = StyleSheet.create({
         color: 'gray',
         fontSize: 15,
         marginBottom: 5
-    },
-    permitLink: {
-        color: '#4f4ace',
     },
     statusRow: {
         flexDirection: 'row',

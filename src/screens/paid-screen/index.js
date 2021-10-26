@@ -23,7 +23,7 @@ function PaidScreen(props) {
         },
         {
             label: 'Location',
-            value: 'Welcom Street',
+            value: 'Welcome Street',
             isBg: false
 
         },
@@ -97,14 +97,14 @@ function PaidScreen(props) {
                             CONTACT
                         </Text>
                         <Text style={styles.detailInfo}>
-                            +91 12345 12345
+                            12345 12345
                         </Text>
                     </View>
 
                 </View>
 
                 <View style={styles.btnContainer}>
-                    <Button title={'Extend Session'} textColor={'white'} navigation={navigation} width={'80%'} route={'dashboard'} />
+                    <Button title={'Extend Session'} textColor={'white'} navigation={navigation} width={'80%'} route={'payForSpace'} />
                 </View>
             </ScrollView>
         </SafeAreaView >

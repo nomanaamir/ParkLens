@@ -46,6 +46,7 @@ function PayForSpaceScreen(props) {
                         <TextInput
                             style={styles.textField}
                             keyboardType="numeric"
+                            defaultValue="57"
                         />
                     </View>
 
