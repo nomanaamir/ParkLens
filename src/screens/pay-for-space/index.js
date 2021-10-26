@@ -136,7 +136,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: 100,
         borderRadius: 5,
-        color: 'gray'
+        color: 'gray',
+        minHeight: 40,
+        paddingLeft: 5,
+        paddingRight: 5
     },
     paymentForm: {
         backgroundColor: '#d5d5d5',
@@ -146,7 +149,7 @@ const styles = StyleSheet.create({
     },
     paymentFormRow: {
         justifyContent: 'center',
-        padding: 14
+        padding: 14,
     },
     fullWidth: {
         width: '100%',
