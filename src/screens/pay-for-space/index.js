@@ -10,7 +10,8 @@ import {
     TouchableOpacity,
     TextInput
 } from 'react-native';
-import Header from '../../components/header/index'
+import Header from '../../components/header/index';
+import Button from '../../components/button/index'
 const { width, height, fontScale } = Dimensions.get('window');
 function PayForSpaceScreen(props) {
 
@@ -78,11 +79,12 @@ function PayForSpaceScreen(props) {
                         </View>
 
                         <View style={styles.paymentFormRow}>
-                            <TouchableOpacity style={styles.payBtn} onPress={() => navigation.navigate('payForSpace')}>
+                            <Button title={'PAY'} textColor={'white'} navigation={navigation} route={'paid'} width={'100%'}/>
+                            {/* <TouchableOpacity style={styles.payBtn} onPress={() => navigation.navigate('paid')}>
                                 <Text style={styles.payBtnText}>
                                     Pay
                                 </Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                     </View>
                 </View>
@@ -150,18 +152,7 @@ const styles = StyleSheet.create({
         width: '100%',
         marginTop: 5
     },
-    payBtn: {
-        backgroundColor: '#81c341',
-        width: '100%',
-        height: 55,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    payBtnText: {
-        color: 'white',
-        fontSize: fontScale * 16,
-        fontWeight: 'bold'
-    },
+
 });
 
 
