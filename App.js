@@ -29,7 +29,8 @@ import {
 // screens
 import LandingScreen from './src/screens/landing-screen/index';
 import DashboardScreen from './src/screens/dashboard-screen/index';
-import PayForSpaceScreen from './src/screens/pay-for-space/index'
+import PayForSpaceScreen from './src/screens/pay-for-space/index';
+import PaidScreen from './src/screens/paid-screen/index'
 const Stack = createStackNavigator();
 const forFade = ({ current }) => ({
   cardStyle: {
@@ -50,8 +51,7 @@ const App: () => Node = () => {
         <Stack.Screen name="landing" component={LandingScreen} options={{ headerShown: false, cardStyleInterpolator: forFade, }} />
         <Stack.Screen name="dashboard" component={DashboardScreen} options={{ headerShown: false, cardStyleInterpolator: forFade, }} />
         <Stack.Screen name="payForSpace" component={PayForSpaceScreen} options={{ headerShown: false, cardStyleInterpolator: forFade, }} />
-
-
+        <Stack.Screen name="paid" component={PaidScreen} options={{ headerShown: false, cardStyleInterpolator: forFade, }} />
 
       </Stack.Navigator>
     </NavigationContainer>

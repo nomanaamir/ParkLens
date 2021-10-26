@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-    Button,
     View,
     Text,
     SafeAreaView,
@@ -12,6 +11,7 @@ import {
     Pressable
 } from 'react-native';
 import Header from '../../components/header/index';
+import Button from '../../components/button/index';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 const { width, height, fontScale } = Dimensions.get('window');
@@ -132,13 +132,13 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.9273,
             longitude: -96.95016,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '18'
         },
         {
             latitude: 32.9273,
             longitude: -96.95009,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '19'
         },
         {
@@ -150,7 +150,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.9273,
             longitude: -96.94996,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '21'
         },
         {
@@ -168,7 +168,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.9273,
             longitude: -96.94976,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '24'
         },
         {
@@ -180,13 +180,13 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.9273,
             longitude: -96.94964,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '26'
         },
         {
             latitude: 32.9273,
             longitude: -96.94959,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '27'
         },
         {
@@ -240,13 +240,13 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.9273,
             longitude: -96.94866,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '36'
         },
         {
             latitude: 32.9273,
             longitude: -96.9486,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '37'
         },
         {
@@ -270,13 +270,13 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.9273,
             longitude: -96.94834,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '41'
         },
         {
             latitude: 32.9273,
             longitude: -96.94828,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '42'
         },
 
@@ -284,7 +284,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.92729,
             longitude: -96.9482,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '43'
         },
         {
@@ -296,7 +296,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.92729,
             longitude: -96.94807,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '45'
         },
         {
@@ -308,7 +308,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.92729,
             longitude: -96.94793,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '47'
         },
         {
@@ -320,7 +320,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.92729,
             longitude: -96.9478,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '49'
         },
         {
@@ -377,13 +377,13 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.92729,
             longitude: -96.94692,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '58'
         },
         {
             latitude: 32.92729,
             longitude: -96.94685,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '59'
         },
         {
@@ -409,7 +409,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.92728,
             longitude: -96.9466,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '63'
         },
 
@@ -429,7 +429,7 @@ const ParkingSlots = ({ navigation }) => {
         {
             latitude: 32.92728,
             longitude: -96.94642,
-            color: '#de5c2f',
+            color: '#ade8a5',
             id: '66'
         },
         {
@@ -455,7 +455,7 @@ const ParkingSlots = ({ navigation }) => {
         setIsViewSlots(!isViewSlots)
         setMapType('satellite')
     }
-   
+
     return (
         <SafeAreaView style={styles.container}>
             <Header headerAction={toggleDrawer} actionIcon={require('../../../assets/menu.png')} />
@@ -482,7 +482,7 @@ const ParkingSlots = ({ navigation }) => {
                                 return (
                                     <MapView.Marker
                                         key={item.id}
-                                        anchor={{x: 0.5, y: 0.5}}
+                                        anchor={{ x: 0.5, y: 0.5 }}
                                         tracksViewChanges={false}
                                         coordinate={
                                             {
@@ -542,7 +542,7 @@ const ParkingSlots = ({ navigation }) => {
                                                 Get driving dir
                                             </Text>
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.dropdownBtn} >
+                                        <TouchableOpacity style={styles.dropdownBtn} onPress={() => { setIsAvailableParking(!isAvailableParking); toggleDropdown(!isDropdown) }}>
                                             <Text style={styles.dropdownBtnText}>
                                                 Go back
                                             </Text>
@@ -553,11 +553,7 @@ const ParkingSlots = ({ navigation }) => {
                             </>
                         :
                         <View style={styles.payBtnContainer}>
-                            <TouchableOpacity style={styles.payBtn} onPress={() => navigation.navigate('payForSpace')}>
-                                <Text style={styles.payBtnText}>
-                                    PAY FOR SPACE
-                                </Text>
-                            </TouchableOpacity>
+                            <Button title={'PAY FOR SPACE'} textColor={'white'} width={'90%'} navigation={navigation} route={'payForSpace'} />
                         </View>
                 }
 
@@ -679,19 +675,6 @@ const styles = StyleSheet.create({
         height: '20%',
         alignItems: 'center'
     },
-    payBtn: {
-        backgroundColor: '#81c341',
-        width: '90%',
-        height: 55,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    payBtnText: {
-        color: 'white',
-        fontSize: fontScale * 16,
-        fontWeight: 'bold'
-    },
-
     lotCard: {
         position: 'absolute',
         top: 10,
