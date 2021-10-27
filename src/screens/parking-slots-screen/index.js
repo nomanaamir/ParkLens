@@ -563,7 +563,7 @@ const ParkingSlots = ({ navigation }) => {
 
                                 </View>
                                 <Text style={styles.statusRowText}>
-                                    Available: 6
+                                    Available: 27
                                 </Text>
                             </View>
 
@@ -572,7 +572,7 @@ const ParkingSlots = ({ navigation }) => {
 
                                 </View>
                                 <Text style={styles.statusRowText}>
-                                    Occupied: 66
+                                    Occupied: 43
                                 </Text>
                             </View>
 
