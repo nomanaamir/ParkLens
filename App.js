@@ -16,6 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
+  LogBox
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -30,7 +31,8 @@ import {
 import LandingScreen from './src/screens/landing-screen/index';
 import DashboardScreen from './src/screens/dashboard-screen/index';
 import PayForSpaceScreen from './src/screens/pay-for-space/index';
-import PaidScreen from './src/screens/paid-screen/index'
+import PaidScreen from './src/screens/paid-screen/index';
+LogBox.ignoreLogs(['Reanimated 2']);
 const Stack = createStackNavigator();
 const forFade = ({ current }) => ({
   cardStyle: {
