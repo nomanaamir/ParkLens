@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
         width: '65%',
         height: 50,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRadius: 5
     },
     allowLocationBtnText: {
         color: 'black',

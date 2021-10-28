@@ -62,7 +62,7 @@ const ParkingLocation = ({ navigation }) => {
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.allowLocationBtn} onPress={() => navigation.navigate('parkingSlots')}>
                         <Text style={styles.allowLocationBtnText}>
-                            View all available parkings
+                            View all available parking
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: '75%',
         alignSelf: 'center',
-        height: '20%',
+        minHeight: 120,
+        maxHeight: 120,
         justifyContent: 'space-between'
 
     },
@@ -104,7 +105,9 @@ const styles = StyleSheet.create({
         padding: 10,
         height: 45,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRadius: 5
+
     },
     allowLocationBtnText: {
         color: 'black',
