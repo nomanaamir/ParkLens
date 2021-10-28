@@ -280,91 +280,91 @@ const ParkingSlots = ({ navigation }) => {
 
 
         {
-            latitude: 32.92729,
+            latitude: 32.92730,
             longitude: -96.9482,
             color: '#ade8a5',
             id: '43'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94814,
             color: '#de5c2f',
             id: '44'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94807,
             color: '#ade8a5',
             id: '45'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94799,
             color: '#de5c2f',
             id: '46'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94793,
             color: '#ade8a5',
             id: '47'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94786,
             color: '#de5c2f',
             id: '48'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.9478,
             color: '#ade8a5',
             id: '49'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94774,
             color: '#de5c2f',
             id: '50'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94769,
             color: '#de5c2f',
             id: '51'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94762,
             color: '#de5c2f',
             id: '52'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94757,
             color: '#de5c2f',
             id: '53'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.9475,
             color: '#de5c2f',
             id: '54'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94744,
             color: '#de5c2f',
             id: '55'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94737,
             color: '#de5c2f',
             id: '56'
         },
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.94699,
             color: '#de5c2f',
             id: '57'
@@ -373,19 +373,19 @@ const ParkingSlots = ({ navigation }) => {
 
 
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94692,
             color: '#ade8a5',
             id: '58'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94685,
             color: '#ade8a5',
             id: '59'
         },
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94679,
             color: '#de5c2f',
             id: '60'
@@ -393,51 +393,51 @@ const ParkingSlots = ({ navigation }) => {
 
 
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.94673,
             color: '#de5c2f',
             id: '61'
         },
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.94667,
             color: '#de5c2f',
             id: '62'
         },
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.9466,
             color: '#ade8a5',
             id: '63'
         },
 
         {
-            latitude: 32.92729,
+            latitude: 32.9273,
             longitude: -96.94654,
             color: '#de5c2f',
             id: '64'
         },
 
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.94647,
             color: '#de5c2f',
             id: '65'
         },
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.94642,
             color: '#ade8a5',
             id: '66'
         },
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.94636,
             color: '#de5c2f',
             id: '67'
         },
         {
-            latitude: 32.92728,
+            latitude: 32.9273,
             longitude: -96.94629,
             color: '#de5c2f',
             id: '68'
@@ -482,7 +482,7 @@ const ParkingSlots = ({ navigation }) => {
                                 latitude: 32.927278, longitude: -96.951583
                             }}
                     >
-                        
+
                     </MapView.Marker>
                     {
                         mapType !== 'standard' ?
@@ -510,42 +510,42 @@ const ParkingSlots = ({ navigation }) => {
                 </MapView>
                 {
                     !isViewSlots ?
-                       
-                            <>
-                                <Pressable style={styles.availableLot} onPress={() => toggleDropdown(!isDropdown)}>
-                                    <View>
-                                        <Text style={styles.availableLotText}>
-                                            Welcome Street, George Town
+
+                        <>
+                            <Pressable style={styles.availableLot} onPress={() => toggleDropdown(!isDropdown)}>
+                                <View>
+                                    <Text style={styles.availableLotText}>
+                                        Welcome Street, George Town
+                                    </Text>
+                                </View>
+                                <View style={styles.progressBar}>
+                                    <Image
+                                        style={styles.progressBarImg}
+                                        source={require('../../../assets/progress-bar.png')}
+                                    />
+                                </View>
+                            </Pressable>
+                            {isDropdown ?
+                                <View style={styles.dropdown}>
+                                    <TouchableOpacity style={styles.dropdownBtn} onPress={() => viewSlots()}>
+                                        <Text style={styles.dropdownBtnText}>
+                                            View lot map
                                         </Text>
-                                    </View>
-                                    <View style={styles.progressBar}>
-                                        <Image
-                                            style={styles.progressBarImg}
-                                            source={require('../../../assets/progress-bar.png')}
-                                        />
-                                    </View>
-                                </Pressable>
-                                {isDropdown ?
-                                    <View style={styles.dropdown}>
-                                        <TouchableOpacity style={styles.dropdownBtn} onPress={() => viewSlots()}>
-                                            <Text style={styles.dropdownBtnText}>
-                                                View lot map
-                                            </Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity style={styles.dropdownBtn}>
-                                            <Text style={styles.dropdownBtnText}>
-                                                Get driving dir
-                                            </Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity style={styles.dropdownBtn} onPress={() => { navigation.goBack(); toggleDropdown(!isDropdown) }}>
-                                            <Text style={styles.dropdownBtnText}>
-                                                Go back
-                                            </Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                    :
-                                    null}
-                            </>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.dropdownBtn}>
+                                        <Text style={styles.dropdownBtnText}>
+                                            Get driving dir
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.dropdownBtn} onPress={() => { navigation.goBack(); toggleDropdown(!isDropdown) }}>
+                                        <Text style={styles.dropdownBtnText}>
+                                            Go back
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                                :
+                                null}
+                        </>
                         :
                         <View style={styles.payBtnContainer}>
                             <Button title={'PAY FOR SPACE'} textColor={'white'} width={'90%'} navigation={navigation} route={'payForSpace'} />
