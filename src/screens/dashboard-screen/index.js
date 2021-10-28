@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
 import ParkingSlots from '../parking-slots-screen/index'
 import ParkingLocation from '../parking-location-screen/index'
 
 const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
 
 
 
-function DashboardScreen(props) {
-
-    const { navigation } = props;
+function DashboardScreen() {
 
     return (
         <Drawer.Navigator
@@ -36,13 +31,6 @@ function DashboardScreen(props) {
                 }}
                 component={ParkingSlots} />
 
-
-            {/* <Drawer.Screen
-                name="payForSpace"
-                options={{
-                    drawerLabel: '', headerShown: false,
-                }}
-                component={PayForSpaceScreen} /> */}
         </Drawer.Navigator>
     );
 };

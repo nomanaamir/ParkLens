@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     View,
     Text,
     SafeAreaView,
     TouchableOpacity,
-    Image,
     StyleSheet,
     Dimensions,
-    ScrollView,
-    Pressable
 } from 'react-native';
 import Header from '../../components/header/index';
-import Button from '../../components/button/index';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 const { width, height, fontScale } = Dimensions.get('window');
 const ParkingLocation = ({ navigation }) => {
