@@ -32,7 +32,7 @@ function DashboardScreen(props) {
             <Drawer.Screen
                 name="parkingSlots"
                 options={{
-                    drawerLabel: 'Parking Slots', headerShown: false,
+                    drawerLabel: 'Available Parking', headerShown: false,
                 }}
                 component={ParkingSlots} />
 
