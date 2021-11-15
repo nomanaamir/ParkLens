@@ -7,7 +7,6 @@ import {
     Image,
     StyleSheet,
     Dimensions,
-    ScrollView,
     Pressable
 } from 'react-native';
 import Header from '../../components/header/index';

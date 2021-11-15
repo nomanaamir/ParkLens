@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -6,8 +6,6 @@ import {
     Dimensions,
     Text,
     View,
-    Image,
-    TouchableOpacity,
     TextInput
 } from 'react-native';
 import Header from '../../components/header/index';
@@ -81,11 +79,6 @@ function PayForSpaceScreen(props) {
 
                         <View style={styles.paymentFormRow}>
                             <Button title={'PAY'} textColor={'white'} navigation={navigation} route={'paid'} width={'100%'}/>
-                            {/* <TouchableOpacity style={styles.payBtn} onPress={() => navigation.navigate('paid')}>
-                                <Text style={styles.payBtnText}>
-                                    Pay
-                                </Text>
-                            </TouchableOpacity> */}
                         </View>
                     </View>
                 </View>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -6,9 +6,6 @@ import {
     Dimensions,
     Text,
     View,
-    Image,
-    TouchableOpacity,
-    TextInput
 } from 'react-native';
 import Header from '../../components/header/index';
 import Button from '../../components/button/index';
